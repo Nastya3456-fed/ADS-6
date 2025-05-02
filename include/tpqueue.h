@@ -19,6 +19,7 @@ class TPQueue {
     Node(const T& d) : data(d), next(nullptr) {}
   };
 Node* head;
+
 public:
   TPQueue() : head(nullptr) {}
   ~TPQueue() {
@@ -34,8 +35,7 @@ public:
     if (!head || element < head->data) {
       newNode->next = head;
       head = newNode;
-    }
-    else {
+    } else {
       Node* current = head;
       while (current->next && !(element < current->next->data)) {
         current = current->next;
