@@ -1,23 +1,29 @@
+#ifndef INCLUDE_TPQUEUE_H_
+#define INCLUDE_TPQUEUE_H_
+
 struct SYM {
     char ch;
     int prior;
 };
 
+template<typename T>
 class TPQueue {
 public:
     TPQueue();
     ~TPQueue();
 
-    void push(const SYM& ch);
-    SYM pop();
+    void push(const T& ch);
+    T pop();
     bool empty() const;
 
 private:
     struct Node {
-        SYM data;
+        T data;
         Node* next;
-        Node(const SYM& ch);
+        Node(const T& ch);
     };
 
     Node* head;
 };
+
+#endif
