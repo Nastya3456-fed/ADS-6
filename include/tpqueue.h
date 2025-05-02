@@ -10,7 +10,7 @@ struct SYM {
 
 
 bool operator<(const SYM& lhs, const SYM& rhs) {
-    return lhs.prior < rhs.prior;
+    return lhs.prior > rhs.prior;
 }
 
 
