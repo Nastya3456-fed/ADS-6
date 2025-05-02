@@ -1,12 +1,13 @@
 // Copyright 2021 NNTU-CS
+#include "tpqueue.h"
 #include <stdexcept>
-#include "tpqueue.h" 
 
-TPQueue::Node::Node(const SYM& ch) : data(ch), next(nullptr) {}
 
-TPQueue::TPQueue() : head(nullptr) {}
+TPQueue<SYM>::Node::Node(const SYM& ch) : data(ch), next(nullptr) {}
 
-TPQueue::~TPQueue() {
+TPQueue<SYM>::TPQueue() : head(nullptr) {}
+
+TPQueue<SYM>::~TPQueue() {
     while (head != nullptr) {
         Node* temp = head;
         head = head->next;
@@ -14,21 +15,18 @@ TPQueue::~TPQueue() {
     }
 }
 
-bool TPQueue::empty() const {
+bool TPQueue<SYM>::empty() const {
     return head == nullptr;
 }
 
-
-void TPQueue::push(const SYM& ch) {
+void TPQueue<SYM>::push(const SYM& ch) {
     Node* newNode = new Node(ch);
-
 
     if (head == nullptr || ch.prior > head->data.prior) {
         newNode->next = head;
         head = newNode;
         return;
     }
-
 
     Node* current = head;
     while (current->next != nullptr && current->next->data.prior >= ch.prior) {
@@ -39,7 +37,7 @@ void TPQueue::push(const SYM& ch) {
     current->next = newNode;
 }
 
-SYM TPQueue::pop() {
+SYM TPQueue<SYM>::pop() {
     if (empty()) {
         throw std::out_of_range("pustaya ochered");
     }
