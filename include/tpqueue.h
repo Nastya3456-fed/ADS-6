@@ -1,3 +1,4 @@
+// Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
 
@@ -20,7 +21,7 @@ class TPQueue {
   };
 Node* head;
 
-public:
+ public:
   TPQueue() : head(nullptr) {}
   ~TPQueue() {
     while (!empty()) {
@@ -56,4 +57,4 @@ public:
   }
 };
 
-#endif
+#endif // INCLUDE_TPQUEUE_H_
